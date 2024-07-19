@@ -1,3 +1,7 @@
 #/bin/bash
 
-docker run --rm -w /var/1brc -v $(pwd):/var/1brc php:8.3-cli php "$@"
+# profile with xdebug: ./phpd -d="xdebug.mode=profile" calculateAverage_v4.php 10M 5
+# run with JIT: ./phpd -d="xdebug.mode=off" -d="opcache.enable_cli=1" -d="opcache.jit_buffer_size=100M" calculateAverage_v4.php 10M 5
+
+docker run --rm -w /var/1brc -v $(pwd):/var/1brc 1brc:latest php -d="memory_limit=-1" -d="xdebug.output_dir=/var/1brc/xdebug" "$@"
+
