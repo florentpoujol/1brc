@@ -1,5 +1,7 @@
 <?php
 
+// V1
+
 /*
  * Usage:
  * calculateAverage.php [file suffix] [number of results to output] [debug]
@@ -164,6 +166,6 @@ end:
 $lineCountPerMs = (int) ($lineCount / $totalTimeInMs);
 echo PHP_EOL . "Total time to process: $totalTimeInMs ms ($lineCountPerMs lines/ms)" . PHP_EOL;
 
-$peakMemoryUsageInKb = memory_get_peak_usage() / 1_000;
-$memoryUsageInKb = memory_get_peak_usage() / 1_000;
+$peakMemoryUsageInKb = memory_get_peak_usage(true) / 1_000;
+$memoryUsageInKb = memory_get_usage(true) / 1_000;
 echo "Peak memory: $peakMemoryUsageInKb Kb ($memoryUsageInKb Kb)" . PHP_EOL;

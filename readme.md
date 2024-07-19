@@ -11,6 +11,9 @@ If you do have php installed locally but have docker, use `./phpd` instead of `p
 
 ## Results
 
-The script run via the `php:8.3-cli` docker image on Ubuntu 24.04 that itself run in a VM on Windows 10.
+The script run via the `php:8.3-cli` docker image on Ubuntu 24.04 that itself run in a VM on Windows 10.  
+CPU speed is 3.5Ghz per real core.
 
-- V1 : 112 seconds for 100M lines (893 lines per milliseconds) (Memory 787.5 Kb)
+| version        | Description              | Total time      | lines / ms | Peak memory usage |
+|----------------|--------------------------|---------------------|------------|-------------------|
+| 1 | The first, naive version | 112 s for 100M rows | 893        | 2.1 Mb    |
