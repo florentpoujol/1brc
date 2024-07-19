@@ -29,8 +29,9 @@ class WeatherStation {
     }
 }
 
-function createMeasurements($numRecords) {
-    $measurementFile = './measurements.txt';
+function createMeasurements(int $numRecords, string $fileNameSuffix): void
+{
+    $measurementFile = './measurements.txt' . $fileNameSuffix;
     $start = microtime(true);
 
     // Hardcoded data
@@ -471,14 +472,15 @@ function createMeasurements($numRecords) {
 }
 
 // Usage example, passing argument from command line
-if ($argc !== 2) {
-    echo "Usage: create_measurements.php <number of records to create>\n";
+if ($argc < 1) {
+    echo "Usage: create_measurements.php <number of records to create> [<file name suffix>]\n";
     exit(1);
 }
 
 try {
     $size = (int) $argv[1];
-    createMeasurements($size);
+    $fileNameSuffix = $argv[2] ?? '';
+    createMeasurements($size, $fileNameSuffix);
 } catch (Exception $e) {
     echo "An error occurred: " . $e->getMessage() . "\n";
     exit(1);
