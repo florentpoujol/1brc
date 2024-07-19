@@ -1,0 +1,3 @@
+#/bin/bash
+
+docker run --rm -w /var/1brc -v $(pwd):/var/1brc php:8.3-cli php "$@"
